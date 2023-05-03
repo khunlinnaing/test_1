@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "Hash": "GHOHUEx0COtkobhzcoXhwUtnDuB6t0+jGccMiSjg3iw=",
+  "Source": "backend",
+  "BasePath": "_content/backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "backend\\wwwroot",
+      "Source": "backend",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\JAVA\\tye\\test_1\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\JAVA\\tye\\test_1\\backend\\wwwroot\\Employees.csv",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\JAVA\\tye\\test_1\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "Employees.csv",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Employees.csv"
+    }
+  ]
+}
