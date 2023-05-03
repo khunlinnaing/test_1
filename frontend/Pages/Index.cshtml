@@ -1,0 +1,74 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    var n=Model.Customers.PageNumber;
+    int no=1;
+}
+
+<div class="">
+    <h1 class="display-4">Welcome My Project</h1>
+    <a href="/Create" class="btn btn-primary">Create</a>
+</div>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Profile</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var forecast in @Model.Customers.Items)
+        {
+            <tr>
+                <td>@no</td>
+                <td><img src="@forecast.Profile" width="50" height="50"></td>
+                <td>@forecast.FirstName @forecast.LastName</td>
+                <td>@forecast.Email</td>
+                <td>@forecast.Address</td>
+                <td>@forecast.PhoneNumber</td>
+                <td>
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-6">
+                            <a asp-page="/Edit" asp-route-id="@forecast.id" class="btn btn-success">Edit</a>
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                            <form method="POST">
+                                <input type="hidden" asp-for="@forecast.id">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            no++;
+        }
+    </tbody>
+</table>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    @if(Model.Customers.PageNumber > 1){
+        int Previous= @Model.Customers.PageNumber -1;
+        <li class="page-item"><a class="page-link" href="?page=@Previous">Previous</a></li>
+    }
+    @for (int i = 1; i <= Model.Customers.TotalPages; i++)
+    {
+        if(Model.Customers.PageNumber == i){
+            <li class="page-item active"><a class="page-link" href="?page=@i">@i</a></li>
+        }else{
+            <li class="page-item"><a class="page-link" href="?page=@i">@i</a></li>
+        }        
+    }
+    @if(Model.Customers.PageNumber < Model.Customers.TotalPages){
+        int next= @Model.Customers.PageNumber+1;
+        <li class="page-item"><a class="page-link" href="?page=@next">Next</a></li>
+    }
+  </ul>
+</div>
